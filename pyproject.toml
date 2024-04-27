@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "stack-overflow-watchman"
+version = "0.1.0"
+description = "Detecting exposed secrets in Stack Overflow Enterprise for Teams"
+authors = ["PaperMtn <papermtn@protonmail.com>"]
+readme = "README.md"
+license = "GPL-3.0"
+homepage = "https://papermtn.co.uk/category/tools/stack-overflow-watchman"
+repository = "https://github.com/PaperMtn/stack-overflow-watchman"
+packages = [{include = "stack_overflow_watchman", from = "src"}]
+include = ["CHANGELOG.md", "pyproject.toml", "README.md"]
+
+[tool.poetry.scripts]
+stack-overflow-watchman = "stack_overflow_watchman:main"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.31.0"
+pyyaml = "^6.0.1"
+colorama = "^0.4.6"
+pylint = "^3.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pylint.'MASTER']
+disable = [
+    "missing-module-docstring",
+    "missing-class-docstring",
+    "missing-function-docstring",
+    "fixme",
+    "duplicate-code",
+    "logging-fstring-interpolation",
+    "too-many-instance-attributes",
+]
+max-line-length = 120
+const-naming-style = "any"
