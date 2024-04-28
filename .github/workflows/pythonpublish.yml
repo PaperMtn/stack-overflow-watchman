@@ -1,0 +1,22 @@
+
+name: Poetry Publish
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+    - run: poetry install
+    - run: poetry config pypi-token.pypi "${{ secrets.PYPI_TOKEN }}"
+    - name: Publish package
+      run: poetry publish --build
