@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "stack-overflow-watchman"
-version = "0.1.0"
+version = "1.0.0"
 description = "Detecting exposed secrets in Stack Overflow Enterprise for Teams"
 authors = ["PaperMtn <papermtn@protonmail.com>"]
 readme = "README.md"
